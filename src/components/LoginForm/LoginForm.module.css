@@ -1,4 +1,4 @@
-.form {
+.loginFormContainer {
   display: flex;
   flex-direction: column;
   gap: 20px;
@@ -7,12 +7,12 @@
   margin: 0 auto;
 }
 
-label {
+.loginFormLabel {
   font-size: 1rem;
   font-weight: bold;
 }
 
-input {
+.loginFormInput {
   width: 100%;
   padding: 10px;
   border: 1px solid #ccc;
@@ -20,7 +20,7 @@ input {
   font-size: 1rem;
 }
 
-button {
+.loginFormButton {
   background-color: #4caf50;
   color: white;
   padding: 10px;
@@ -30,6 +30,12 @@ button {
   transition: background-color 0.3s ease;
 }
 
-button:hover {
+.loginFormButton:hover {
   background-color: #45a049;
+}
+
+.loginFormErrorMessage {
+  color: red;
+  font-size: 0.875rem;
+  margin-top: 5px;
 }

@@ -1,29 +1,37 @@
 import { useSelector, useDispatch } from "react-redux";
-import { deleteContact } from "../../redux/contactsOps";
-import { selectFilteredContacts } from "../../redux/contactsSlice";
-import styles from "./ContactList.module.css";
+import Contact from "../Contact/Contact";
+import { selectFilteredContacts } from "../../redux/contacts/selectors";
+import { deleteContact } from "../../redux/contacts/operations";
+import css from "./ContactList.module.css";
+import { toast } from "react-hot-toast";
 
-const ContactList = () => {
-  const contacts = useSelector(selectFilteredContacts);
+function ContactList() {
   const dispatch = useDispatch();
+  const filteredContacts = useSelector(selectFilteredContacts);
+
+  const handleDelete = async (id) => {
+    try {
+      await dispatch(deleteContact(id));
+      toast.success("Contact deleted successfully!");
+    } catch {
+      toast.error("Failed to delete contact");
+    }
+  };
 
   return (
-    <ul className={styles.list}>
-      {contacts.map(({ id, name, number }) => (
-        <li key={id} className={styles.item}>
-          <p className={styles.text}>
-            {name}: {number}
-          </p>
-          <button
-            className={styles.button}
-            onClick={() => dispatch(deleteContact(id))}
-          >
-            Delete
-          </button>
+    <ul className={css.contactListWrapper}>
+      {filteredContacts.map((contact) => (
+        <li className={css.contactListItem} key={contact.id}>
+          <Contact
+            name={contact.name}
+            number={contact.number}
+            id={contact.id}
+            onDelete={() => handleDelete(contact.id)}
+          />
         </li>
       ))}
     </ul>
   );
-};
+}
 
 export default ContactList;

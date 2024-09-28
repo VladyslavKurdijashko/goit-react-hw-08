@@ -1,18 +1,22 @@
-.form {
+.registrationFormContainer {
   display: flex;
   flex-direction: column;
   gap: 20px;
   width: 100%;
   max-width: 400px;
   margin: 0 auto;
+  padding: 20px;
+  background-color: #fff;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
-label {
+.registrationFormLabel {
   font-size: 1rem;
   font-weight: bold;
 }
 
-input {
+.registrationFormInput {
   width: 100%;
   padding: 10px;
   border: 1px solid #ccc;
@@ -20,7 +24,12 @@ input {
   font-size: 1rem;
 }
 
-button {
+.registrationFormErrorMessage {
+  color: red;
+  font-size: 0.875rem;
+}
+
+.registrationFormButton {
   background-color: #4caf50;
   color: white;
   padding: 10px;
@@ -30,6 +39,6 @@ button {
   transition: background-color 0.3s ease;
 }
 
-button:hover {
+.registrationFormButton:hover {
   background-color: #45a049;
 }

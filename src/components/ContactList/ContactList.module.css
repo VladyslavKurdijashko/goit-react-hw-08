@@ -1,33 +1,23 @@
-.list {
+.contactListWrapper {
   list-style: none;
   padding: 0;
   margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
 }
 
-.item {
+.contactListItem {
   display: flex;
   justify-content: space-between;
   align-items: center;
   padding: 10px;
-  border: 1px solid #ddd;
-  border-radius: 5px;
-  margin-bottom: 10px;
-  background-color: #fff;
+  border-radius: 8px;
+  background-color: #f5f5f5;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  transition: background-color 0.3s ease;
 }
 
-.text {
-  font-size: 16px;
-}
-
-.button {
-  padding: 5px 10px;
-  border: none;
-  border-radius: 5px;
-  background-color: #dc3545;
-  color: white;
-  cursor: pointer;
-}
-
-.button:hover {
-  background-color: #c82333;
+.contactListItem:hover {
+  background-color: #e0e0e0;
 }
